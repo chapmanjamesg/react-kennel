@@ -7,10 +7,11 @@ import ApplicationViews from './ApplicationViews';
 class Kennel extends Component {
     render() {
         return (
-            <div>
+            //using a react fragment...or kind of like an invisible tag
+            <React.Fragment>
                 <NavBar />
                 <ApplicationViews />
-            </div>
+            </React.Fragment>
         );
     }
 }

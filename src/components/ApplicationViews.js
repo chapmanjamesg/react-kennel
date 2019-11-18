@@ -19,13 +19,13 @@ class ApplicationViews extends Component {
                 <Route path="/animals" render={(props) => {
                     return <AnimalCard />
                 }} />
-                <Route exact path="/location" render={(props) => {
+                <Route path="/location" render={(props) => {
                     return <LocationCard />
                 }} />
-                <Route exact path="/employee" render={(props) => {
+                <Route path="/employee" render={(props) => {
                     return <EmployeeCard />
                 }} />
-                <Route exact path="/owner" render={(props) => {
+                <Route path="/owner" render={(props) => {
                     return <OwnerCard />
                 }} />
             </React.Fragment>
