@@ -6,8 +6,7 @@ class EmployeeCard extends Component {
             <div className="card">
                 <div className="card-content">
                     <h2>Meet our staff!</h2>
-                    <h3>Name: <span className="card-employeeName">Scuba Steve</span></h3>
-                    <p>Specialty: Long Walks on the Beach, actually listening to the dogs needs, and teaching dogs to scuba dive.</p>
+                    <h3>Name: <span className="card-employeeName">{this.props.employee.name}</span></h3>
                 </div>
             </div>
         )

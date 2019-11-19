@@ -7,7 +7,7 @@ class EmployeeList extends Component {
     state = {
         employees: [],
     }
-}
+
 
 componentDidMount(){
     console.log("Employee List: ComponentDidMount");
@@ -23,7 +23,11 @@ componentDidMount(){
 render(){
     return(
         <div className="container-cards">
-            {this.state.employees.map(employee => <EmployeeCard />)}
+            {this.state.employees.map(employee => 
+            <EmployeeCard key={employee.id} employee={employee} />)}
         </div>
     )
 }
+}
+
+export default EmployeeList
