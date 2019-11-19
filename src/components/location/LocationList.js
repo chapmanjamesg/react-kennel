@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import LocationCard from './LocationCard'
-import LocationManager from '../../modules/LocationManager';
+import APIManager from '../../modules/APIManager';
 
 
 class LocationList extends Component {
@@ -11,8 +11,8 @@ class LocationList extends Component {
 
 componentDidMount(){
     console.log("Location List: ComponentDidMount");
-
-    LocationManager.getAll()
+    const location = "locations"
+    APIManager.getAll(location)
     .then((locations) => {
         this.setState({
             locations: locations
