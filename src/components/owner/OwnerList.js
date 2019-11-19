@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OwnerCard from './OwnerCard'
-import OwnerManager from '../../modules/OwnerManager';
+import APIManager from '../../modules/APIManager';
 
 
 class OwnerList extends Component {
@@ -11,8 +11,8 @@ class OwnerList extends Component {
 
 componentDidMount(){
     console.log("Owner List: ComponentDidMount");
-
-    OwnerManager.getAll()
+    const owner = "owners"
+    APIManager.getAll(owner)
     .then((owners) => {
         this.setState({
             owners: owners
