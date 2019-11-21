@@ -10,40 +10,51 @@ class LocationList extends Component {
     }
 
 
-componentDidMount(){
-    console.log("Location List: ComponentDidMount");
-    APIManager.getAll(location)
-    .then((locations) => {
-        this.setState({
-            locations: locations
-        })
-    })
-}
+    componentDidMount() {
+        console.log("Location List: ComponentDidMount");
+        APIManager.getAll(location)
+            .then((locations) => {
+                this.setState({
+                    locations: locations
+                })
+            })
+    }
 
-render(){
-    return(
-        <div className="container-cards">
-            {this.state.locations.map(location => 
-            <LocationCard
-             key={location.id} 
-             location={location}
-             deleteLocation={this.deleteLocation}
-             />
-             )}
-        </div>
-    )
-}
-deleteLocation = id => {
-    APIManager.delete(location, id)
-    .then(() => {
-      APIManager.getAll(location)
-      .then((newLocations) => {
-        this.setState({
-            locations: newLocations
-        })
-      })
-    })
-  }
+    render() {
+        return (
+            <>
+                <section className="section-content">
+                    <button
+                        type="button"
+                        className="btn"
+                        onClick={() => { this.props.history.push("/location/new") }}
+                    >
+                        New Location
+            </button>
+                </section>
+                <div className="container-cards">
+                    {this.state.locations.map(location =>
+                        <LocationCard
+                            key={location.id}
+                            location={location}
+                            deleteLocation={this.deleteLocation}
+                        />
+                    )}
+                </div>
+            </>
+        )
+    }
+    deleteLocation = id => {
+        APIManager.delete(location, id)
+            .then(() => {
+                APIManager.getAll(location)
+                    .then((newLocations) => {
+                        this.setState({
+                            locations: newLocations
+                        })
+                    })
+            })
+    }
 }
 
 export default LocationList
