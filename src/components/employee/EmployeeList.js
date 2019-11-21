@@ -10,40 +10,51 @@ class EmployeeList extends Component {
     }
 
 
-componentDidMount(){
-    console.log("Employee List: ComponentDidMount");
-    APIManager.getAll(employee)
-    .then((employees) => {
-        this.setState({
-            employees: employees
-        })
-    })
-}
+    componentDidMount() {
+        console.log("Employee List: ComponentDidMount");
+        APIManager.getAll(employee)
+            .then((employees) => {
+                this.setState({
+                    employees: employees
+                })
+            })
+    }
 
-render(){
-    return(
-        <div className="container-cards">
-            {this.state.employees.map(employee => 
-            <EmployeeCard 
-            key={employee.id} 
-            employee={employee} 
-            deleteEmployee={this.deleteEmployee}
-            />
-            )}
-        </div>
-    )
-}
-deleteEmployee = id => {
-    APIManager.delete(employee, id)
-    .then(() => {
-      APIManager.getAll(employee)
-      .then((newEmployee) => {
-        this.setState({
-            employees: newEmployee
-        })
-      })
-    })
-  }
+    render() {
+        return (
+            <>
+                <section className="section-content">
+                    <button
+                        type="button"
+                        className="btn"
+                        onClick={() => { this.props.history.push("employee/new") }}
+                        >
+                        New Employee
+                    </button>
+                </section>
+                <div className="container-cards">
+                    {this.state.employees.map(employee =>
+                        <EmployeeCard
+                            key={employee.id}
+                            employee={employee}
+                            deleteEmployee={this.deleteEmployee}
+                        />
+                    )}
+                </div>
+            </>
+        )
+    }
+    deleteEmployee = id => {
+        APIManager.delete(employee, id)
+            .then(() => {
+                APIManager.getAll(employee)
+                    .then((newEmployee) => {
+                        this.setState({
+                            employees: newEmployee
+                        })
+                    })
+            })
+    }
 }
 
 export default EmployeeList
