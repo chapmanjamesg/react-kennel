@@ -4,6 +4,8 @@ import './NavBar.css'
 
 class NavBar extends Component {
 
+  /* this is setting up the nav bar using the Links to="/the page you click on" with the name of the item on the bar */
+
   render(){
 
     return (

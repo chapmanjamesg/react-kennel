@@ -24,7 +24,12 @@ render(){
     return (
         <div className="container-cards">
             {this.state.owners.map(owner => 
-            <OwnerCard key={owner.id} owner={owner} />)}
+            <OwnerCard 
+            key={owner.id} 
+            owner={owner} 
+            deleteOwners={this.deleteOwners}
+            />
+            )}
         </div>
     )
 }
@@ -34,7 +39,7 @@ deleteOwners = id => {
       APIManager.getAll(owner)
       .then((newOwners) => {
         this.setState({
-            animals: newOwners
+            owners: newOwners
         })
       })
     })
