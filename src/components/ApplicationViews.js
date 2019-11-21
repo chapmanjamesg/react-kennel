@@ -16,8 +16,9 @@ class ApplicationViews extends Component {
 
     render() {
         return (
-            //JXS is not HTML so these empty tags will be taken as react.fragments
+            //JXS is not HTML so these empty tags will be taken as react.fragments which will prevent us from having extra <div>s, <article>s, or <section>s
             <>
+            {/* the exact part of this code makes it so you will be shown only things with that exact reference */}
                 <Route exact path="/" render={(props) => {
                     return <Home />
                 }} />
@@ -26,25 +27,33 @@ class ApplicationViews extends Component {
                 }} />
                 <Route path="/animals/:animalId(\d+)" render={(props) => {
                     // Pass the animalId to the AnimalDetailComponent
-                    return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />
+                    return <AnimalDetail animalId={parseInt(props.match.params.animalId)}
+                    {...props}
+                     />
                 }} />
                 <Route exact path="/location" render={(props) => {
                     return <LocationList />
                 }} />
                 <Route path="/locations/:locationId(\d+)" render={(props) => {
-                    return <LocationDetail locationId={parseInt(props.match.params.locationId)} />
+                    return <LocationDetail locationId={parseInt(props.match.params.locationId)} 
+                    {...props}
+                    />
                 }} />
                 <Route exact path="/employee" render={(props) => {
                     return <EmployeeList />
                 }} />
                 <Route path="/employees/:employeeId(\d+)" render={(props) => {
-                    return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} />
+                    return <EmployeeDetail employeeId={parseInt(props.match.params.employeeId)} 
+                    {...props}
+                    />
                 }} />
                 <Route exact path="/owner" render={(props) => {
                     return <OwnerList />
                 }} />
                 <Route path="/owners/:ownerId(\d+)" render={(props) => {
-                    return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)} />
+                    return <OwnerDetail ownerId={parseInt(props.match.params.ownerId)} 
+                    {...props}
+                    />
                 }} />
             </>
         )
