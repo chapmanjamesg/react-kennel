@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import OwnerCard from './OwnerCard'
 import APIManager from '../../modules/APIManager';
 
+const owner = "owners"
 
 class OwnerList extends Component {
     state = {
@@ -11,7 +12,6 @@ class OwnerList extends Component {
 
 componentDidMount(){
     console.log("Owner List: ComponentDidMount");
-    const owner = "owners"
     APIManager.getAll(owner)
     .then((owners) => {
         this.setState({
@@ -28,6 +28,17 @@ render(){
         </div>
     )
 }
+deleteOwners = id => {
+    APIManager.delete(owner, id)
+    .then(() => {
+      APIManager.getAll(owner)
+      .then((newOwners) => {
+        this.setState({
+            animals: newOwners
+        })
+      })
+    })
+  }
 }
 
 export default OwnerList

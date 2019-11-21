@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import EmployeeCard from './EmployeeCard'
 import APIManager from '../../modules/APIManager';
 
+const employee = "employees"
 
 class EmployeeList extends Component {
     state = {
@@ -11,7 +12,6 @@ class EmployeeList extends Component {
 
 componentDidMount(){
     console.log("Employee List: ComponentDidMount");
-    const employee = "employees"
     APIManager.getAll(employee)
     .then((employees) => {
         this.setState({
@@ -28,6 +28,17 @@ render(){
         </div>
     )
 }
+deleteEmployee = id => {
+    APIManager.delete(employee, id)
+    .then(() => {
+      APIManager.getAll(employee)
+      .then((newEmployee) => {
+        this.setState({
+            animals: newEmployee
+        })
+      })
+    })
+  }
 }
 
 export default EmployeeList

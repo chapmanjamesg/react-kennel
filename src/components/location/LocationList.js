@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LocationCard from './LocationCard'
 import APIManager from '../../modules/APIManager';
 
+const location = "locations"
 
 class LocationList extends Component {
     state = {
@@ -11,7 +12,6 @@ class LocationList extends Component {
 
 componentDidMount(){
     console.log("Location List: ComponentDidMount");
-    const location = "locations"
     APIManager.getAll(location)
     .then((locations) => {
         this.setState({
@@ -28,6 +28,17 @@ render(){
         </div>
     )
 }
+deleteLocation = id => {
+    APIManager.delete(location, id)
+    .then(() => {
+      APIManager.getAll(location)
+      .then((newLocations) => {
+        this.setState({
+            animals: newLocations
+        })
+      })
+    })
+  }
 }
 
 export default LocationList
