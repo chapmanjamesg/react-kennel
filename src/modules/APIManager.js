@@ -7,5 +7,11 @@ export default {
     },
     getAll(page) {
         return fetch(`${remoteURL}/${page}`).then(result => result.json())
-    }
+    },
+    delete(page, id) {
+        return fetch(`${remoteURL}/${page}/${id}`, {
+            method: "DELETE"
+        })
+        .then(result => result.json())
+      }
 }
