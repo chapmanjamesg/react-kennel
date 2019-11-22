@@ -27,7 +27,7 @@ class LocationForm extends Component {
             }
 
             APIManager.post(page, location)
-                .then(() => this.props.history.push("/location"))
+                .then(() => this.props.history.push("/locations"))
         }
     };
 

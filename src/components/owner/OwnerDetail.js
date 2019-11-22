@@ -10,8 +10,7 @@ class OwnerDetail extends Component {
   }
 
   componentDidMount(){
-    console.log("AnimalDetail: ComponentDidMount");
-    //get(id) from AnimalManager and hang on to the data; put it into state
+    console.log("OwnerDetail: ComponentDidMount");
     APIManager.get(owner, this.props.ownerId)
     .then((owner) => {
       this.setState({
@@ -22,10 +21,9 @@ class OwnerDetail extends Component {
   }
 
   handleDelete = () => {
-    //invoke the delete function in AnimalManger and re-direct to the animal list.
     this.setState({loadingStatus: true})
     APIManager.delete(owner, this.props.ownerId)
-    .then(() => this.props.history.push("/owner"))
+    .then(() => this.props.history.push("/owners"))
 }
 
   render() {

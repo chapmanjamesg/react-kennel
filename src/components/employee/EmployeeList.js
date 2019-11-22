@@ -27,7 +27,7 @@ class EmployeeList extends Component {
                     <button
                         type="button"
                         className="btn"
-                        onClick={() => { this.props.history.push("employee/new") }}
+                        onClick={() => { this.props.history.push("employees/new") }}
                         >
                         New Employee
                     </button>
@@ -38,6 +38,7 @@ class EmployeeList extends Component {
                             key={employee.id}
                             employee={employee}
                             deleteEmployee={this.deleteEmployee}
+                            {...this.props}
                         />
                     )}
                 </div>

@@ -9,7 +9,10 @@ class OwnerCard extends Component {
                     <h2>Owners that love us!</h2>
                     <h3>Name: <span className="card-ownerName">{this.props.owner.name}</span></h3>
                     <Link to={`/owners/${this.props.owner.id}`}><button>Details</button></Link>
-                    <button type="button" onClick={()=> this.props.deleteOwners(this.props.owner.id)}>Remove Owner</button>
+
+                    <button type="button" onClick={() => { this.props.history.push(`/owners/${this.props.owner.id}/edit`)}}>Edit</button>
+
+                    <button type="button" onClick={() => this.props.deleteOwners(this.props.owner.id)}>Remove Owner</button>
                 </div>
             </div>
         )

@@ -27,7 +27,7 @@ class EmployeeForm extends Component {
             };
 
             APIManager.post(page, employee)
-                .then(() => this.props.history.push("/employee"));
+                .then(() => this.props.history.push("/employees"));
         }
     };
 
