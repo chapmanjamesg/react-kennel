@@ -28,7 +28,7 @@ class EmployeeDetail extends Component {
     //invoke the delete function in AnimalManger and re-direct to the animal list.
     this.setState({loadingStatus: true})
     APIManager.delete(employee, this.props.employeeId)
-    .then(() => this.props.history.push("/employee"))
+    .then(() => this.props.history.push("/employees"))
 }
 
   render() {

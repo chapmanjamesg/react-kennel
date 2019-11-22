@@ -27,7 +27,7 @@ class OwnerList extends Component {
                     <button
                         type="button"
                         className="btn"
-                        onClick={() => { this.props.history.push("/owner/new") }}
+                        onClick={() => { this.props.history.push("/owners/new") }}
                     >
                         New Owner
             </button>
@@ -38,6 +38,7 @@ class OwnerList extends Component {
                             key={owner.id}
                             owner={owner}
                             deleteOwners={this.deleteOwners}
+                            {...this.props}
                         />
                     )}
                 </div>

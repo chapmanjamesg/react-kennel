@@ -10,8 +10,7 @@ class LocationDetail extends Component {
   }
 
   componentDidMount(){
-    console.log("AnimalDetail: ComponentDidMount");
-    //get(id) from AnimalManager and hang on to the data; put it into state
+    console.log("LocationDetail: ComponentDidMount");
     APIManager.get(location, this.props.locationId)
     .then((location) => {
       this.setState({
@@ -22,10 +21,9 @@ class LocationDetail extends Component {
   }
 
   handleDelete = () => {
-    //invoke the delete function in AnimalManger and re-direct to the animal list.
     this.setState({loadingStatus: true})
     APIManager.delete(location, this.props.locationId)
-    .then(() => this.props.history.push("/location"))
+    .then(() => this.props.history.push("/locations"))
 }
 
   render() {

@@ -27,7 +27,7 @@ class OwnerForm extends Component {
             };
 
             APIManager.post(page, owner)
-                .then(() => this.props.history.push("/owner"))
+                .then(() => this.props.history.push("/owners"))
         }
     }
 

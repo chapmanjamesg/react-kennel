@@ -12,6 +12,7 @@ class EmployeeCard extends Component {
                     <h3>Name: <span className="card-employeeName">{this.props.employee.name}</span></h3>  
                     {/* Link is an anchor tag */}               
                     <Link to={`/employees/${this.props.employee.id}`}><button>Details</button></Link>
+                    <button type="button" onClick={() => {this.props.history.push(`/employees/${this.props.employee.id}/edit`)}}>Edit</button>
                     {/* this delete button uses this.props to reference the deleteEmployee function, then it will use this.props to then reference the employee.id */}
                     <button type="button" onClick={()=> this.props.deleteEmployee(this.props.employee.id)}>Fire Employee</button>
                 </div>
