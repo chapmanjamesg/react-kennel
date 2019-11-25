@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import APIManager from '../../modules/APIManager';
 import './AnimalDetail.css'
+
 const animal = "animals"
+
 class AnimalDetail extends Component {
 
   state = {
@@ -18,7 +20,7 @@ class AnimalDetail extends Component {
       this.setState({
         name: animal.name,
         breed: animal.breed,
-        loadingStatus: false
+        loadingStatus: false,
       });
     });
   }

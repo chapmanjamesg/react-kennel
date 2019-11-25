@@ -9,7 +9,8 @@
     {
       "id": 2,
       "name": "Decker",
-      "breed": "German Shepard"
+      "breed": "German Shepard",
+      "employeeId": 1
     },
     {
       "id": 3,
@@ -18,14 +19,16 @@
       "employeeId": 3
     },
     {
+      "id": 4,
       "name": "Louie",
       "breed": "Poodle",
-      "id": 4
+      "employeeId": 2
     },
     {
       "name": "Hawlie",
       "breed": "Laberdoodle",
-      "id": 5
+      "id": 5,
+      "employeeId": 2
     }
   ],
   "employees": [
