@@ -5,20 +5,20 @@ import Home from './home/Home'
 import AnimalList from './animal/AnimalList'
 import AnimalDetail from './animal/AnimalDetail'
 import AnimalForm from './animal/AnimalForm'
+import AnimalEditForm from './animal/AnimalEditForm'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeForm from './employee/EmployeeForm'
+import EmployeeEditForm from './employee/EmployeeEditForm'
 import EmployeeWithAnimals from './employee/EmployeeWithAnimals'
 import LocationList from './location/LocationList'
-import LocationWithEmployees from './location/LocationWithEmployees'
 import LocationForm from './location/LocationForm'
+import LocationEditForm from './location/LocationEditForm'
+import LocationWithEmployees from './location/LocationWithEmployees'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
 import OwnerForm from './owner/OwnerForm'
-import Login from './auth/login'
-import AnimalEditForm from './animal/AnimalEditForm'
-import EmployeeEditForm from './employee/EmployeeEditForm'
-import LocationEditForm from './location/LocationEditForm'
 import OwnerEditForm from './owner/OwnerEditForm'
+import Login from './auth/login'
 
 
 class ApplicationViews extends Component {
@@ -37,7 +37,7 @@ class ApplicationViews extends Component {
                     return <Home />
                 }} />
                 <Route exact path="/animals" render={props => {
-                    if (this.isAuthenticated()) {
+                    if (this.props.user) {
                         return <AnimalList {...props} />
                     } else {
                         return <Redirect to="/login" />
@@ -58,7 +58,7 @@ class ApplicationViews extends Component {
                     }}
                 />
                 <Route exact path="/employees" render={props => {
-                    if (this.isAuthenticated()) {
+                    if (this.props.user) {
                         return <EmployeeList {...props} />
                     } else {
                         return <Redirect to="/login" />
@@ -75,7 +75,7 @@ class ApplicationViews extends Component {
                     return <EmployeeWithAnimals {...props} />
                 }} />
                 <Route exact path="/locations" render={props => {
-                    if (this.isAuthenticated()) {
+                    if (this.props.user) {
                         return <LocationList {...props} />
                     } else {
                         return <Redirect to="/login" />
@@ -91,7 +91,7 @@ class ApplicationViews extends Component {
                     return <LocationWithEmployees  {...props} />
                 }} />
                 <Route exact path="/owners" render={props => {
-                    if (this.isAuthenticated()) {
+                    if (this.props.user) {
                         return <OwnerList {...props} />
                     } else {
                         return <Redirect to="/login" />
@@ -108,7 +108,9 @@ class ApplicationViews extends Component {
                 <Route path="/owners/:ownerId(\d+)/edit" render={props => {
                     return <OwnerEditForm {...props} />
                 }} />
-                <Route path="/login" component={Login} />
+                <Route path="/login" render={(props) => {
+                    return <Login setUser={this.props.setUser} {...props} />
+                }} />
             </>
         )
     }
