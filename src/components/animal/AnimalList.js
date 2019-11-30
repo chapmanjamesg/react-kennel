@@ -22,6 +22,18 @@ class AnimalList extends Component {
       })
   }
 
+  deleteAnimal = id => {
+    APIManager.delete(animal, id)
+      .then(() => {
+        APIManager.getAll(animal)
+          .then((newAnimals) => {
+            this.setState({
+              animals: newAnimals
+            })
+          })
+      })
+  }
+
   render() {
     console.log("AnimalList: Render");
 
@@ -49,17 +61,6 @@ class AnimalList extends Component {
         </div>
       </>
     )
-  }
-  deleteAnimal = id => {
-    APIManager.delete(animal, id)
-      .then(() => {
-        APIManager.getAll(animal)
-          .then((newAnimals) => {
-            this.setState({
-              animals: newAnimals
-            })
-          })
-      })
   }
 }
 
