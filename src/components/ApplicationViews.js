@@ -9,7 +9,7 @@ import EmployeeList from './employee/EmployeeList'
 import EmployeeForm from './employee/EmployeeForm'
 import EmployeeWithAnimals from './employee/EmployeeWithAnimals'
 import LocationList from './location/LocationList'
-import LocationDetail from './location/LocationDetail'
+import LocationWithEmployees from './location/LocationWithEmployees'
 import LocationForm from './location/LocationForm'
 import OwnerList from './owner/OwnerList'
 import OwnerDetail from './owner/OwnerDetail'
@@ -81,15 +81,14 @@ class ApplicationViews extends Component {
                         return <Redirect to="/login" />
                     }
                 }} />
-                <Route exact path="/locations/:locationId(\d+)" render={(props) => {
-                    return <LocationDetail locationId={parseInt(props.match.params.locationId)}
-                        {...props} />
-                }} />
                 <Route path="/locations/new" render={(props) => {
                     return <LocationForm {...props} />
                 }} />
                 <Route path="/locations/:locationId(\d+)/edit" render={(props) => {
                     return <LocationEditForm {...props} />
+                }} />
+                <Route path="/locations/:locationId(\d+)/details" render={(props) => {
+                    return <LocationWithEmployees  {...props} />
                 }} />
                 <Route exact path="/owners" render={props => {
                     if (this.isAuthenticated()) {

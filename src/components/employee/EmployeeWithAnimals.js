@@ -18,6 +18,18 @@ class EmployeeWithAnimals extends Component {
         })
       })
   }
+
+  deleteAnimal = id => {
+    APIManager.delete("animals", id)
+      .then(() => {
+        APIManager.getAll("animals")
+          .then((newAnimals) => {
+            this.setState({
+              animals: newAnimals
+            })
+          })
+      })
+  }
   
   render() {
     return (
@@ -27,6 +39,7 @@ class EmployeeWithAnimals extends Component {
           <AnimalCard
             key={animal.id}
             animal={animal}
+            deleteAnimal={this.deleteAnimal}
             {...this.props}
           />
         )}

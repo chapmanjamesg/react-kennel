@@ -21,28 +21,42 @@
     {
       "id": 4,
       "name": "Louie",
-      "breed": "Poodle",
+      "breed": "Standard Poodle",
       "employeeId": 2
     },
     {
+      "id": 5,
       "name": "Hawlie",
       "breed": "Laberdoodle",
-      "id": 5,
       "employeeId": 2
+    },
+    {
+      "id": 6,
+      "name": "Bubba",
+      "breed": "Toy Poodle",
+      "employeeId": 4
     }
   ],
   "employees": [
     {
       "id": 1,
-      "name": "Scuba Steve"
+      "name": "Scuba Steve",
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Optimus Prime"
+      "name": "Optimus Prime",
+      "locationId": 2
     },
     {
       "id": 3,
-      "name": "Spike"
+      "name": "Spike",
+      "locationId": 3
+    },
+    {
+      "id": 4,
+      "name": "Buffy Summers",
+      "locationId": 4
     }
   ],
   "owners": [
