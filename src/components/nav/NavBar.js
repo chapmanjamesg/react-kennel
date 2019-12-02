@@ -4,6 +4,7 @@ import './NavBar.css'
 
 class NavBar extends Component {
 
+  //this is the function that actually handles the logout function and then sends you back to the home page when you are done
   handleLogout = () => {
     this.props.clearUser();
     this.props.history.push('/');
@@ -18,7 +19,8 @@ class NavBar extends Component {
         <nav>
           <ul className="container">
             <li><Link className="nav-link" to="/">Home</Link></li>
-            <li>Locations</li>
+            <li><Link className="nav-link" to="/locations"></Link>Locations</li>
+            {/* this makes it so that when the user is passed down that those nav links will populate home and location should always populate and be clickable*/}
             {(this.props.user) ? 
             <>
             <li><Link className="nav-link" to="/animals">Animals</Link></li>
