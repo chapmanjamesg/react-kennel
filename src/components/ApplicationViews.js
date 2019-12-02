@@ -37,9 +37,11 @@ class ApplicationViews extends Component {
                     return <Home />
                 }} />
                 <Route exact path="/animals" render={props => {
+                    //this.props.user is checking to see if there is a user logged in the kennel.js
                     if (this.props.user) {
                         return <AnimalList {...props} />
                     } else {
+                        //if this returns false it directs the user to the login screen
                         return <Redirect to="/login" />
                     }
                 }} />
@@ -109,6 +111,7 @@ class ApplicationViews extends Component {
                     return <OwnerEditForm {...props} />
                 }} />
                 <Route path="/login" render={(props) => {
+                    //this routes to the login page and will pass the setUser function to the setUser
                     return <Login setUser={this.props.setUser} {...props} />
                 }} />
             </>

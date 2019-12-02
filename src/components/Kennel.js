@@ -11,7 +11,7 @@ class Kennel extends Component {
   // Check if credentials are in local storage
   //returns true/false
   isAuthenticated = () => localStorage.getItem("credentials") !== null
-
+  // this is the section that will take the user, set it to localStorage then change the state of user to the authenticated function
   setUser = (authObj) => {
     /*
       For now, just store the email and password that
@@ -25,7 +25,7 @@ class Kennel extends Component {
       user: this.isAuthenticated()
     });
   }
-
+  //this will go through the reverse of setUser and will function as a way to log out.
   clearUser = () => {
     // localStorage.clear()
     localStorage.removeItem("credentials")
@@ -38,7 +38,7 @@ class Kennel extends Component {
       user: this.isAuthenticated()
     })
   }
-
+  //this will render the nav bar fully when user is logged in and then the applicationViews while passing through user and setUser 
   render() {
     return (
       <>
